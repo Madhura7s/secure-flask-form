@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Secure Registration Form</title>
+
+</head>
+
+<body>
+
+    <h1>Secure User Registration</h1>
+
+    <form method="POST" action="/submit">
+
+        <!-- Name -->
+
+        <label>Name</label><br>
+
+        <input
+            type="text"
+            name="name"
+            maxlength="50"
+            required>
+
+        <br><br>
+
+
+        <!-- Student ID -->
+
+        <label>Student ID</label><br>
+
+        <input
+            type="text"
+            name="student_id"
+            maxlength="10"
+            required>
+
+        <br><br>
+
+
+        <!-- Email -->
+
+        <label>Email</label><br>
+
+        <input
+            type="email"
+            name="email"
+            maxlength="100"
+            required>
+
+        <br><br>
+
+
+        <!-- Password -->
+
+        <label>Password</label><br>
+
+        <input
+            type="password"
+            name="password"
+            required>
+
+        <br><br>
+
+
+        <button type="submit">
+            Register
+        </button>
+
+    </form>
+
+</body>
+
+</html>
