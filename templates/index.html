@@ -12,6 +12,10 @@
     <h1>Secure User Registration</h1>
 
     <form method="POST" action="/submit">
+    
+        <input type="hidden" 
+               name="csrf_token" 
+               value="{{ csrf_token() }}">
 
         <!-- Name -->
 

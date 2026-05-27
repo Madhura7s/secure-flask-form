@@ -1,11 +1,22 @@
 from flask import Flask, render_template, request, redirect, session
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from flask_wtf.csrf import CSRFProtect
+
 import re
 import bcrypt
 import sqlite3
 
 app = Flask(__name__)
 
-app.secret_key = 'super_secret_key_change_this'
+csrf = CSRFProtect(app)
+
+limiter = Limiter(
+    get_remote_address,
+    app=app
+)
+
+app.secret_key = 'Madhura_Secure_Flask_Project_2026_!@#'
 
 def get_db_connection():
 
@@ -50,6 +61,7 @@ def home():
 
 #Login Page Route
 @app.route('/login')
+@limiter.limit("10 per minute")
 def login_page():
     return render_template('login.html')
 @app.route('/login', methods=['POST'])
@@ -132,6 +144,7 @@ def logout():
 
 # Form Submission
 @app.route('/submit', methods=['POST'])
+@limiter.limit("5 per minute")
 def submit():
 
     # Get Form Data
